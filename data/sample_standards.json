@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Adult CPR Training Standard",
+    "description": "Standard guidelines for teaching adult CPR according to AHA/Red Cross guidelines",
+    "category": "CPR Techniques",
+    "tags": ["adult", "cpr", "compressions", "rescue-breaths"],
+    "requirements": [
+      "Teach proper hand placement on lower half of breastbone",
+      "Demonstrate compression depth of at least 2 inches",
+      "Practice compression rate of 100-120 per minute",
+      "Teach 30:2 compression-to-ventilation ratio",
+      "Emphasize allowing complete chest recoil"
+    ]
+  },
+  {
+    "name": "Child CPR Training Standard",
+    "description": "Modified CPR techniques for children aged 1-8 years",
+    "category": "CPR Techniques",
+    "tags": ["child", "pediatric", "cpr"],
+    "requirements": [
+      "Teach compression depth of about 2 inches (at least 1/3 chest depth)",
+      "Practice one-hand or two-hand technique based on child size",
+      "Use 30:2 ratio for single rescuer, 15:2 for two rescuers",
+      "Cover airway management for children",
+      "Practice on child-sized manikins"
+    ]
+  },
+  {
+    "name": "Infant CPR Training Standard",
+    "description": "Specialized CPR techniques for infants under 1 year",
+    "category": "CPR Techniques",
+    "tags": ["infant", "baby", "cpr", "pediatric"],
+    "requirements": [
+      "Teach two-finger compression technique",
+      "Demonstrate compression depth of 1.5 inches (at least 1/3 chest depth)",
+      "Practice 30:2 ratio for single rescuer",
+      "Cover gentle rescue breaths for infants",
+      "Practice on infant manikins"
+    ]
+  },
+  {
+    "name": "AED Training Standard",
+    "description": "Automated External Defibrillator usage and safety",
+    "category": "Equipment",
+    "tags": ["aed", "defibrillator", "equipment"],
+    "requirements": [
+      "Teach when to use an AED",
+      "Demonstrate proper pad placement",
+      "Practice clearing the patient before shock",
+      "Cover pediatric AED pad usage",
+      "Emphasize minimal interruption to compressions"
+    ]
+  },
+  {
+    "name": "Scene Safety and Assessment",
+    "description": "Initial assessment and safety protocols",
+    "category": "Assessment",
+    "tags": ["safety", "assessment", "emergency-response"],
+    "requirements": [
+      "Teach scene safety check",
+      "Demonstrate responsiveness check",
+      "Practice calling for help/activating EMS",
+      "Cover pulse and breathing assessment",
+      "Emphasize no more than 10 seconds for pulse check"
+    ]
+  },
+  {
+    "name": "Hands-On Practice Requirements",
+    "description": "Minimum practice time and skill demonstration",
+    "category": "Practice",
+    "tags": ["hands-on", "practice", "skills"],
+    "requirements": [
+      "Minimum 60 minutes of hands-on practice per student",
+      "Each student must practice on manikin",
+      "Scenario-based practice sessions",
+      "Instructor feedback on technique",
+      "Multiple practice attempts for skill mastery"
+    ]
+  },
+  {
+    "name": "Assessment and Certification",
+    "description": "Testing and certification requirements",
+    "category": "Assessment",
+    "tags": ["testing", "certification", "evaluation"],
+    "requirements": [
+      "Skills test on adult CPR",
+      "Written knowledge test (minimum 25 questions)",
+      "Passing score of 80% or higher",
+      "Must demonstrate competency in all critical skills",
+      "Issue certification card upon passing"
+    ]
+  },
+  {
+    "name": "Course Duration Standard",
+    "description": "Time requirements for comprehensive training",
+    "category": "Duration",
+    "tags": ["duration", "time", "scheduling"],
+    "requirements": [
+      "Minimum 4 hours of instruction",
+      "Include breaks (10 minutes per 2 hours)",
+      "Balance lecture and hands-on practice (30/70 split)",
+      "Allow time for questions and review",
+      "Schedule skills assessment time"
+    ]
+  },
+  {
+    "name": "Legal and Ethical Training",
+    "description": "Legal protections and ethical considerations",
+    "category": "Content",
+    "tags": ["legal", "ethics", "good-samaritan"],
+    "requirements": [
+      "Explain Good Samaritan laws",
+      "Discuss duty to act",
+      "Cover consent (expressed and implied)",
+      "Address confidentiality",
+      "Review when to stop CPR"
+    ]
+  },
+  {
+    "name": "Teaching Materials Standard",
+    "description": "Required equipment and materials",
+    "category": "Equipment",
+    "tags": ["materials", "equipment", "resources"],
+    "requirements": [
+      "Adult CPR manikins (1 per 2-3 students)",
+      "Child and infant manikins",
+      "AED trainers",
+      "Face shields and gloves",
+      "Visual aids and presentation materials",
+      "Student manuals or workbooks",
+      "Skills evaluation checklists"
+    ]
+  }
+]
+
