@@ -1,58 +1,63 @@
-# 🎓 GTA CPR Curriculum Design Framework
+# 🎓 WSIB Curriculum Designer with AI Assistant
 
-> A complete web application for designing curriculum from RFPs and generating training materials automatically!
+> An intelligent curriculum design system powered by SQL and conversational AI
 
-![Project Status](https://img.shields.io/badge/status-in%20development-yellow)
+![Project Status](https://img.shields.io/badge/status-active-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+![Database](https://img.shields.io/badge/database-MySQL-blue)
+![AI](https://img.shields.io/badge/AI-powered-purple)
 
 ---
 
 ## 📖 What Does This App Do?
 
-Think of this app like a **"Curriculum Factory"**! Here's what happens:
+Think of this as your **"Intelligent Curriculum Design Assistant"**! Here's the magic:
 
-1. **You upload** an RFP document (PDF or Word) from WSIB
-2. **The app reads** the RFP and breaks it into requirements
-3. **You click a button** to generate a curriculum
-4. **The app creates** everything you need:
-   - 📊 PowerPoint presentations for teaching
-   - 📚 Student workbooks
-   - 👨‍🏫 Instructor manuals  
+1. **Upload RFP** - Drop in your Request for Proposal document
+2. **Chat naturally** - Tell the AI what you need: "Create an 8-hour CPR course for healthcare workers"
+3. **AI designs** - Uses professional instructional design (Bloom's Taxonomy, ADDIE, 70-20-10 learning)
+4. **You get**:
+   - 📚 Professional curricula with modules, objectives, activities
+   - 📋 Business Requirements Documents (BRDs)
+   - 📊 Customized PowerPoint presentations
+   - 📝 Student & instructor manuals
    - 🎭 Practice scenarios
    - ✍️ Test questions
 
-All in just a few clicks! 🎉
+**All through natural conversation!** No forms, no buttons - just chat! 💬
 
 ---
 
 ## 🏗️ How It's Built
 
-This project uses three main parts (like three rooms in a house):
+Professional architecture running **100% on your computer**:
 
 ```
-┌─────────────────┐
-│   FRONTEND      │  ← The part you see and click (React)
-│   (Website)     │
-└────────┬────────┘
-         │
-         ↓
-┌─────────────────┐
-│   SUPABASE      │  ← Cloud database and file storage
-│   (Database)    │
-└────────┬────────┘
-         │
-         ↓
-┌─────────────────┐
-│   BACKEND       │  ← The "brain" that creates files (Python)
-│   (Generator)    │
-└─────────────────┘
+┌──────────────────────────────────┐
+│   Frontend (React + TypeScript)  │  ← Beautiful chat interface
+│   Port: 5173                     │
+└─────────────┬────────────────────┘
+              │ REST API
+┌─────────────▼────────────────────┐
+│   Backend (FastAPI/Python)       │  ← AI-powered logic
+│   Docker Container               │
+│   Port: 8000                     │
+└─────────────┬────────────────────┘
+              │ SQLAlchemy ORM
+┌─────────────▼────────────────────┐
+│   MySQL Database                 │  ← All your data
+│   Docker Container               │
+│   Port: 13306                    │
+└──────────────────────────────────┘
 ```
 
 ### Tech Stack:
-- **Frontend:** React + TypeScript + Vite + TailwindCSS
-- **Database:** Supabase (PostgreSQL in the cloud)
-- **Backend:** Python + FastAPI
-- **Libraries:** PyPDF2, python-pptx, reportlab
+- **Frontend:** React 18, TypeScript, Vite, TailwindCSS
+- **Backend:** Python 3.12, FastAPI, SQLAlchemy
+- **Database:** MySQL 8.0 (Dockerized)
+- **AI Services:** Instructional Designer, BRD Extractor, Chat Endpoints
+- **Infrastructure:** Docker Compose
+- **Libraries:** python-pptx, ReportLab, PyPDF2, PyMySQL
 
 ---
 
@@ -87,225 +92,152 @@ gta-cpr-curriculum/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start (5 Minutes!)
 
-### Step 1: Install Required Software
+### Prerequisites
 
-Before you start, you need to install these tools (like buying ingredients before cooking):
+✅ **Docker Desktop** - Download from https://docker.com
+✅ **Node.js 18+** - Download from https://nodejs.org
 
-1. **Node.js** (version 18 or newer)
-   - Download from: https://nodejs.org/
-   - This runs the frontend website
+That's it! No MySQL installation, no complex setup!
 
-2. **Python** (version 3.10 or newer)
-   - Download from: https://www.python.org/
-   - This runs the backend server
+### Installation
 
-3. **Git** (to download code)
-   - Download from: https://git-scm.com/
-
-4. **Code Editor** (optional but helpful)
-   - VS Code: https://code.visualstudio.com/
-
-### Step 2: Get a Supabase Account
-
-Supabase is like a "cloud filing cabinet" for your data:
-
-1. Go to https://supabase.com
-2. Click "Start your project"
-3. Sign up (it's FREE!)
-4. Create a new project:
-   - Give it a name: "gta-cpr-curriculum"
-   - Set a password (save this!)
-   - Choose a region (closest to you)
-5. Wait 2 minutes for it to set up
-6. Go to **Settings → API** and copy:
-   - `Project URL` (looks like: https://xxxxx.supabase.co)
-   - `anon public` key (long string of letters/numbers)
-
-### Step 3: Set Up the Database
-
-1. In Supabase dashboard, click **SQL Editor**
-2. Click **New Query**
-3. Copy everything from `supabase/schema.sql` in this project
-4. Paste it and click **Run**
-5. You should see "Success" - your database is ready! ✅
-
-### Step 4: Create Storage Buckets
-
-1. In Supabase dashboard, click **Storage**
-2. Create two buckets:
-   - Click **New bucket** → Name: `rfp-uploads` → Make it Public → Create
-   - Click **New bucket** → Name: `generated-outputs` → Make it Public → Create
-
-### Step 5: Set Up Frontend
-
-Open your terminal (Command Prompt on Windows, Terminal on Mac):
-
+**1. Clone the repository:**
 ```bash
-# Go to the project folder
-cd gta-cpr-curriculum
+git clone https://github.com/Kaizenpbc/wsib.git
+cd wsib
+```
 
-# Go to frontend folder
+**2. Start everything with one command:**
+```bash
+docker-compose up
+```
+
+Wait for: "Application startup complete" ✅
+
+**3. Start the frontend (new terminal):**
+```bash
 cd frontend
-
-# Install all the tools (this takes 2-3 minutes)
 npm install
-
-# Create environment file
-# On Windows:
-copy .env.example .env
-
-# On Mac/Linux:
-cp .env.example .env
-```
-
-Now open the `.env` file and add your Supabase info:
-
-```
-VITE_SUPABASE_URL=https://xxxxx.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key-here
-VITE_BACKEND_API_URL=http://localhost:8000
-```
-
-### Step 6: Set Up Backend
-
-Open a NEW terminal window:
-
-```bash
-# Go to the project folder
-cd gta-cpr-curriculum
-
-# Go to backend folder
-cd backend
-
-# Create a virtual environment (like a separate workspace for Python)
-# On Windows:
-python -m venv venv
-venv\Scripts\activate
-
-# On Mac/Linux:
-python3 -m venv venv
-source venv/bin/activate
-
-# Install Python tools (this takes 2-3 minutes)
-pip install -r requirements.txt
-
-# Create environment file
-# On Windows:
-copy .env.example .env
-
-# On Mac/Linux:
-cp .env.example .env
-```
-
-Open the `backend/.env` file and add:
-
-```
-SUPABASE_URL=https://xxxxx.supabase.co
-SUPABASE_KEY=your-service-role-key-here
-API_HOST=0.0.0.0
-API_PORT=8000
-CORS_ORIGINS=http://localhost:5173
-```
-
-**Note:** For SUPABASE_KEY, use the **service_role** key (not anon), found in Settings → API → service_role key.
-
----
-
-## ▶️ Running the Application
-
-You need to run **TWO things** at the same time (like having two workers):
-
-### Terminal 1 - Frontend (Website)
-
-```bash
-cd frontend
 npm run dev
 ```
 
-You should see:
+**4. Open your browser:**
 ```
-  VITE v5.0.8  ready in 500 ms
-
-  ➜  Local:   http://localhost:5173/
+http://localhost:5173
 ```
 
-### Terminal 2 - Backend (Python Server)
+**You're done!** 🎉
 
-```bash
-cd backend
-# Make sure virtual environment is activated (you should see (venv) in your terminal)
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+### What Just Happened?
+
+- ✅ MySQL database started in Docker
+- ✅ Backend API started in Docker
+- ✅ All tables created automatically
+- ✅ Frontend ready to use
+- ✅ Everything running on YOUR computer
+- ✅ No cloud accounts needed!
+
+### Create Your `.env` File (Important!)
+
+Create `backend/.env` with:
+```env
+MYSQL_HOST=mysql
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=root123
+MYSQL_DATABASE=gta_cpr_curriculum
+API_HOST=0.0.0.0
+API_PORT=8000
+CORS_ORIGINS=http://localhost:5173
+STORAGE_TYPE=local
 ```
 
-You should see:
-```
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-```
-
-### Open the App!
-
-Open your web browser and go to: **http://localhost:5173**
-
-You should see the GTA CPR Curriculum Designer! 🎉
+The Docker containers use this to connect!
 
 ---
 
-## 🎮 How to Use the App
+## ▶️ Daily Use
 
-### 1. Upload Standards & Compliance Documents (NEW! 🆕)
+**Starting the System:**
 
-1. Click **"Upload Standards"** in the sidebar
-2. Click the upload box or drag and drop files
-3. **Select multiple files** at once:
-   - CPR training standards (e.g., AHA guidelines)
-   - Compliance requirements
-   - Industry best practices
-   - Reference materials
-4. Click **"Upload X Document(s)"**
-5. Watch them all upload!
-6. See them on your Dashboard
+```bash
+# Terminal 1: Docker containers
+docker-compose up
 
-### 2. Upload an RFP
+# Terminal 2: Frontend
+cd frontend && npm run dev
+```
 
-1. Click **"Upload RFP"** in the sidebar
-2. Fill in the form:
-   - **Title:** "CPR Training Program 2024"
-   - **Organization:** "WSIB"
-   - **Description:** "CPR training requirements"
-3. Click the upload box and select a PDF or Word file
-4. Click **"Upload and Parse RFP"**
-5. Wait while it reads the file (this takes 10-30 seconds)
-6. You'll be taken to the Curriculum Design page
+**Stopping the System:**
 
-### 3. Generate Curriculum
+Press `Ctrl+C` in both terminals, or:
+```bash
+docker-compose down
+```
 
-1. On the Curriculum Design page, you'll see all the requirements from the RFP
-2. Click **"Generate Curriculum"** button
-3. Wait a few seconds
-4. You'll see modules appear (like chapters in a book)
-5. The system will use your uploaded standards to guide the curriculum!
+**Accessing:**
+- **App**: http://localhost:5173
+- **API Docs**: http://localhost:8000/docs
+- **MySQL**: localhost:13306 (root/root123)
 
-### 4. Generate Outputs
+---
 
-1. Click **"Generate Outputs"** button
-2. You'll see cards for different output types:
-   - PowerPoint Presentation
-   - Student Manual
-   - Instructor Manual
-   - Practice Scenarios
-   - Test Questions
-3. Click **"Generate"** on any card
-4. Wait for it to create the file
-5. Click **"Download"** when ready!
+## 🎮 How to Use (The AI Way!)
 
-### 5. Check Compliance
+### 🤖 AI Assistant - Your Main Workspace
 
-1. Click **"View Compliance"**
-2. See which RFP requirements are met
-3. Green checkmarks ✅ = requirement is covered
-4. Export a compliance report
+**Click "🤖 AI Assistant" in the left menu**
+
+This is where everything happens! Split-screen interface:
+- **Left**: Chat with AI
+- **Right**: See your work build in real-time
+
+### Example Conversations
+
+**Creating a Curriculum:**
+```
+You: "Create an 8-hour CPR course for healthcare workers"
+
+AI: "Perfect! I've selected 145 MUST-HAVE requirements.
+     Ready to generate?"
+     
+You: "Yes"
+
+AI: "✨ Curriculum Generated!
+     - 6 modules
+     - Professional instructional design
+     - 70% hands-on practice
+     
+     Click 'Save' when ready!"
+```
+
+**Generating a BRD:**
+```
+You: "Generate business requirements"
+
+AI: Creates complete BRD with:
+     - Executive summary
+     - Functional requirements
+     - Success criteria
+     - Stakeholders
+```
+
+**Customizing PowerPoint:**
+```
+You: "Make a PowerPoint with blue theme and instructor notes"
+
+AI: "Let me design that for you..."
+     [Shows customized PPT preview]
+```
+
+### Traditional Workflow (Still Available)
+
+1. **Upload RFP**: Left menu → Upload RFP → Select file
+2. **View Standards**: Upload standards for reference
+3. **Generate**: Use AI Assistant OR navigate manually
+4. **Download**: All outputs available for download
 
 ---
 
@@ -319,31 +251,55 @@ Want to try it without a real RFP? Use the sample file:
 
 ---
 
+## 📚 Documentation
+
+### Complete Guides Available
+
+- **📘 [User Manual](docs/USER_MANUAL.md)** - Complete user guide with examples
+- **🔧 [Technical Guide](docs/TECHNICAL_GUIDE.md)** - Architecture and development
+- **👨‍💼 [Admin Guide](docs/ADMIN_GUIDE.md)** - System administration
+- **🎓 [Training Guide](docs/TRAINING_GUIDE.md)** - Train others to use the system
+- **⚡ [Quick Reference](docs/QUICK_REFERENCE.md)** - Cheat sheet (print this!)
+
+### API Documentation
+
+Once running, visit: `http://localhost:8000/docs`
+
+---
+
 ## 🐛 Troubleshooting
 
-### Problem: "npm install" fails
-**Solution:** Make sure you have Node.js 18+ installed. Check with: `node --version`
+### Docker won't start
+**Solution:** Ensure Docker Desktop is running. Check: `docker --version`
 
-### Problem: "pip install" fails
-**Solution:** Make sure you have Python 3.10+ installed. Check with: `python --version`
+### Port already in use
+**Solution:** Change ports in `docker-compose.yml`:
+```yaml
+mysql:
+  ports:
+    - "13307:3306"  # Changed from 13306
+```
 
-### Problem: Frontend can't connect to backend
+### Frontend can't connect
 **Solution:** 
-1. Make sure backend is running on port 8000
-2. Check your `.env` files have correct URLs
-3. Try restarting both servers
+1. Verify backend is running: `curl http://localhost:8000/health`
+2. Check CORS in `backend/app/config.py`
+3. Restart both services
 
-### Problem: "Supabase connection failed"
+### Database connection failed
 **Solution:**
-1. Check your Supabase URL and keys in `.env` files
-2. Make sure you ran the `schema.sql` in Supabase
-3. Verify storage buckets exist
+1. Check `.env` file exists in `backend/`
+2. Verify password matches `docker-compose.yml`
+3. Wait 10 seconds after MySQL starts
+4. Restart: `docker-compose restart backend`
 
-### Problem: File upload fails
+### Chat not responding
 **Solution:**
-1. Check storage buckets are created in Supabase
-2. Verify buckets are set to "Public"
-3. Check file size (must be under 10MB)
+1. Check backend logs: `docker-compose logs backend`
+2. Refresh browser
+3. Try suggestion buttons instead of typing
+
+**For more troubleshooting**, see the [Admin Guide](docs/ADMIN_GUIDE.md)
 
 ---
 
@@ -406,18 +362,51 @@ Once you have the basic app running, you can:
 
 ---
 
-## 🌟 Features Coming Soon
+## ✨ Key Features
 
-- 🤖 AI-powered content generation (using OpenAI)
-- 👥 Multi-user collaboration
-- 📧 Email notifications when outputs are ready
-- 🌍 Multi-language support (English/French)
-- 📱 Mobile app version
-- ☁️ Cloud deployment guide
+### Implemented ✅
+
+- ✅ **Conversational AI** - Chat naturally to create curricula
+- ✅ **Professional Instructional Design** - Bloom's Taxonomy, ADDIE, 70-20-10 learning
+- ✅ **Business Requirements** - Auto-generate BRDs from RFPs
+- ✅ **Multiple Curricula** - Create many courses from one RFP
+- ✅ **Customizable Outputs** - Chat-based PowerPoint customization
+- ✅ **100% Local** - All data on YOUR computer, no cloud
+- ✅ **Docker Containerized** - Easy setup and deployment
+- ✅ **Split-Screen Interface** - Chat left, results right
+- ✅ **Auto-clause Selection** - AI picks relevant requirements
+- ✅ **Real-time Preview** - See curricula build as you chat
+
+### Roadmap 🚀
+
+- 🔄 **Curriculum Editing** - Modify existing curricula
+- 🔐 **Multi-user Auth** - Team collaboration
+- 📧 **Notifications** - Email when outputs ready
+- 🌍 **Multi-language** - English/French support
+- 📱 **Mobile App** - iOS/Android
+- ☁️ **Cloud Deployment** - One-click deploy
 
 ---
 
-**Built with ❤️ for WSIB**
+## 🙏 Acknowledgments
+
+Built for **WSIB** with professional instructional design principles:
+- Bloom's Taxonomy for learning progression
+- ADDIE framework for systematic design
+- 70-20-10 model for practical learning
+- Adult learning theory
+
+---
+
+## 📞 Support
+
+- **Documentation**: See `docs/` folder
+- **Issues**: https://github.com/Kaizenpbc/wsib/issues
+- **Discussions**: https://github.com/Kaizenpbc/wsib/discussions
+
+---
+
+**Version 2.0.0** | **Built with ❤️ for WSIB**
 
 Happy curriculum building! 🎓✨
 
